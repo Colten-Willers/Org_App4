@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title %} - Register{% endblock title %}
+
+{% block title_text %}Register{% endblock title_text %}
+
+{% block main %}
+<form action="/register" method="POST">
+    <!--<input type="text" name="user_name" placeholder="Name">
+    <input type="password" name="user_password" placeholder="Passwort">
+    <input type="text" name="user_email" placeholder="Email Adresse">
+    <button class="btn btn-primary" name="btn-submit" type="submit"> Register </button>-->
+
+    <div class="inputs">
+        <p><b>Benutzername: </b><input type="text" name="user_name" class="form-control" placeholder="Name"></p>
+        <p><b>Passwort: </b><input type="password" name="user_password" class="form-control" placeholder="Passwort"></p>
+        <p><b>Email Adresse: </b><input type="text" name="user_email" class="form-control" placeholder="Email Adresse"></p>
+        <button class="btn btn-primary" name="btn-submit" type="submit"> Register </button>
+    </div>
+</form>
+{% endblock main %}

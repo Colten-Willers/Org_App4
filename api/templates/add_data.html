@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block title %} - Add Data{% endblock title %}
+
+{% block title_text %}Daten hinzufügen{% endblock title_text %}
+
+{% block main %}
+<form action="/add_data" method="POST">
+    <div class="inputs">
+        <p><b>Name des Praktikums: </b><input type="text" name="participant" class="form-control" placeholder="Name"></p>
+        <p><b>Bewertung des Praktikums: </b><input type="number" name="rating" class="form-control" placeholder="Bewertung" min="1" max="5"></p>
+        <p><b>Anmerkungen: </b></p>
+        <p><textarea class="form-control" rows="5" name="comment" class="form-control" placeholder="Beschreibung und Anmerkungen"></textarea></p>
+        <button class="btn btn-primary" name="btn-submit" type="submit"> Send </button>
+    </div>
+</form>
+{% endblock main %}

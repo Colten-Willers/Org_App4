@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/stylesheet.css" >
+
+    <div>
+      <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header" id="nav_header">
+              <a class="navbar-brand" href="/">Datenbank</a>
+            </div>
+            <ul class="nav navbar-nav">
+              {% if not session['user_name'] %}
+              <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+              <li class="nav-item"><a class="nav-link" href="/login">Log in</a></li>
+              {% endif %}
+              {% if session['user_name'] %}
+              <li class="nav-item"><a class="nav-link" href="/add_data"> Add Data</a></li>
+              <li class="nav-item"><a class="nav-link" href="/data">Data</a></li>
+              <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
+      </div>
+      
+
+    <title>{% block head %}{% endblock head %}</title>
+
+    <body>
+      <div class="title_text">
+        <h2><b>{% block title_text %}{% endblock title_text %}</b></h2>
+      </div>
+
+      {% block main %}{% endblock main %}
+    </body>
+
+</html>

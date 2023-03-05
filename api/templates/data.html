@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block title %} - Data{% endblock title %}
+
+{% block title_text %}Datenbank{% endblock title_text %}
+
+{% block main %}
+
+{% for name, values in data.items() %}
+<div class="card" style="width:400px">
+    <div class="card-body" id="boxed">
+      <h4 class="card-title"><b>{{ name }}</b></h4>
+      <p class="card-text"><b>Bewertung: </b>{{ values[0] }}/5</p>
+      <p class="card-text"><b>Kommentar: </b>{% if not values[1] %} - {% endif %}{{ values[1] }}</p>
+      {% if values[2] == session['user_name'] %}<small><b>Id: {{ values[3] }}  </b><a href="/update_data">Edit</a></small>{% endif %}
+    </div>
+</div>
+{% endfor %}
+
+{% endblock main %}

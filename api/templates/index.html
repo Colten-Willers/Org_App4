@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block title %} - Home{% endblock title %}
+
+{% block main %}
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-warning alert-dismissible" id="flashed_message" role="alert">
+                    {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% if not session['user_name'] %}
+    <div class="boxed_text">
+        <h2><b>Willkommen</b></h2>
+        <a href="/register">Registrieren</a> oder <a href="/login">einloggen</a>.
+    </div>
+    {% endif %}
+
+    {% if session['user_name'] %}
+    <div class="boxed_text">
+        <h2><b>Willkommen</b></h2>
+        Eine Interaktive Datenbank mit den Daten der BOGY Praktika. <a href="/data">Hier</a> finden sie die Dateneinträge. Hinzufügen können sie Ihre eigenen erworbenen Daten <a href="/add_data">hier</a>.
+    </div>
+    
+    
+    <div class="boxed_text_small">
+        Sie sind eingeloggt als: {{ session['user_name'] }}. <small><a href="/logout">Ausloggen.</a></small>
+    </div>
+    {% endif %}
+    
+
+{% endblock main %}
