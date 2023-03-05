@@ -11,6 +11,8 @@ app.config['SECRET_KEY'] = 'ultra_secret_key'
 # app.secret_key = 'ultra_secret_key'
 # app.config.update(SECRET_KEY = 'ultra_secret_key')
 
+app.config['SESSION_PERMANENT'] = True
+
 app.config['SESSION_TYPE'] = 'filesystem'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
